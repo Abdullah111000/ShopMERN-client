@@ -38,7 +38,7 @@ const Register = () => {
 
     setIsProcessing(true);
 
-    axios.post("http://localhost:8000/api/auth/register", formData)
+    axios.post("/api/auth/register", formData)
       .then((res) => {
         const { status, data } = res
         if (status === 201) {

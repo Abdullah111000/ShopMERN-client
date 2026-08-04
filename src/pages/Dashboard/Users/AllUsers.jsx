@@ -17,7 +17,7 @@ const AllUsers = () => {
 
         const token = localStorage.getItem("jwt");
 
-        axios.get("http://localhost:8000/api/auth/all-users", { headers: { Authorization: `Bearer ${token}` }, })
+        axios.get("/api/auth/all-users", { headers: { Authorization: `Bearer ${token}` }, })
             .then((res) => {
                 const { status, data } = res
                 if (status === 200) {
@@ -48,7 +48,7 @@ const AllUsers = () => {
 
                 const token = localStorage.getItem("jwt");
 
-                axios.delete(`http://localhost:8000/api/auth/delete-user/${id}`, { headers: { Authorization: `Bearer ${token}` }, })
+                axios.delete(`/api/auth/delete-user/${id}`, { headers: { Authorization: `Bearer ${token}` }, })
                     .then((res) => {
                         const { status } = res
                         if (status === 200) {

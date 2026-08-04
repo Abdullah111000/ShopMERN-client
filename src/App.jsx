@@ -1,3 +1,5 @@
+import axios from "axios";
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 import "./App.scss";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "bootstrap/dist/js/bootstrap.bundle";

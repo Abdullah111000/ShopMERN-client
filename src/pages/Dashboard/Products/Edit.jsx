@@ -26,7 +26,7 @@ const Edit = () => {
 
 
     setIsLoading(true);
-    axios.get(`http://localhost:8000/api/products/single/${id}`, { headers: { Authorization: `Bearer ${token}` } })
+    axios.get(`/api/products/single/${id}`, { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => {
         const { status, data } = res;
         if (status === 200 && data.product) {
@@ -78,7 +78,7 @@ const Edit = () => {
 
     setIsProcessing(true);
 
-    axios.patch(`http://localhost:8000/api/products/update/${id}`, { name, price: Number(price), stock: Number(stock),
+    axios.patch(`/api/products/update/${id}`, { name, price: Number(price), stock: Number(stock),
           category,
           description,
         },

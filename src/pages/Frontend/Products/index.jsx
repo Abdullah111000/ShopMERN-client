@@ -22,7 +22,7 @@ const Products = () => {
     // Fetch public products from server
     useEffect(() => {
         let mounted = true
-        axios.get("http://localhost:8000/api/products/public-all")
+        axios.get("/api/products/public-all")
             .then(res => {
                 if (mounted && res && res.data && res.data.products) {
                     setProducts(res.data.products)
@@ -115,7 +115,7 @@ const Products = () => {
             const jwt = localStorage.getItem("jwt")
             const headers = jwt ? { Authorization: 'Bearer ' + jwt } : {}
 
-            const res = await axios.post("http://localhost:8000/api/orders/create", orderPayload, { headers })
+            const res = await axios.post("/api/orders/create", orderPayload, { headers })
             if (res && (res.status === 200 || res.status === 201)) {
                 updateProductStock(prodId, quantity)
                 message.success("Order created successfully")

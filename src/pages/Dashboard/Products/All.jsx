@@ -16,7 +16,7 @@ const All = () => {
         }
 
         setIsLoading(true)
-        axios.get('http://localhost:8000/api/products/all', {
+        axios.get('/api/products/all', {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then((res) => {
@@ -43,7 +43,7 @@ const All = () => {
         if (!token) { return message.error('You must be logged in to access this feature') }
 
         setIsLoading(true)
-        axios.delete(`http://localhost:8000/api/products/delete/${id}`, {
+        axios.delete(`/api/products/delete/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             })
             .then((res) => {

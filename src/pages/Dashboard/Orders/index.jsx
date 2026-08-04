@@ -18,7 +18,7 @@ const OrdersAll = () => {
         const token = localStorage.getItem('jwt')
         if (!token) { return message.error('You must be logged in to access this feature') }
         setIsLoading(true)
-        axios.get('http://localhost:8000/api/orders/all', { headers: { Authorization: 'Bearer ' + token }})
+        axios.get('/api/orders/all', { headers: { Authorization: 'Bearer ' + token }})
             .then((res) => {
                 const { status, data } = res
                 if (status === 200) {
@@ -50,7 +50,7 @@ const OrdersAll = () => {
         if (!token) { return message.error('You must be logged in to access this feature') }
 
         setIsLoading(true)
-        axios.delete('http://localhost:8000/api/orders/' + id, { headers: { Authorization: 'Bearer ' + token }})
+        axios.delete('/api/orders/' + id, { headers: { Authorization: 'Bearer ' + token }})
             .then((res) => {
                 const { status, data } = res
                 if (status === 200) {
@@ -73,7 +73,7 @@ const OrdersAll = () => {
         if (!token) { return message.error('You must be logged in to access this feature') }
 
         setIsLoading(true)
-        axios.patch('http://localhost:8000/api/orders/update-status/' + id, { status: 'shipped' }, { headers: { Authorization: 'Bearer ' + token }})
+        axios.patch('/api/orders/update-status/' + id, { status: 'shipped' }, { headers: { Authorization: 'Bearer ' + token }})
             .then((res) => {
                 const { status, data } = res
                 if (status === 200) {

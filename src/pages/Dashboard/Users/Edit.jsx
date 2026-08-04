@@ -20,7 +20,7 @@ const Edit = () => {
   const getUser = () => {
     const token = localStorage.getItem("jwt");
 
-    axios.get(`http://localhost:8000/api/auth/user/${id}`, { headers: { Authorization: `Bearer ${token}`, }, })
+    axios.get(`/api/auth/user/${id}`, { headers: { Authorization: `Bearer ${token}`, }, })
       .then((res) => {
         const { status, data } = res
         if (status === 200) {
@@ -39,7 +39,7 @@ const Edit = () => {
     setIsProcessing(true);
     const token = localStorage.getItem("jwt");
 
-    axios.patch(`http://localhost:8000/api/auth/update-user/${id}`, { role: state.role, status: state.status, }, { headers: { Authorization: `Bearer ${token}` } })
+    axios.patch(`/api/auth/update-user/${id}`, { role: state.role, status: state.status, }, { headers: { Authorization: `Bearer ${token}` } })
       .then(() => {
         message.success("User updated successfully");
         navigate("/dashboard/users/allusers");

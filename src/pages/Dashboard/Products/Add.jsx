@@ -50,7 +50,7 @@ const Add = () => {
 
     setIsProcessing(true)
 
-    axios.post('http://localhost:8000/api/products/create', formData, { headers: { Authorization: `Bearer ${token}` }, })
+    axios.post('/api/products/create', formData, { headers: { Authorization: `Bearer ${token}` }, })
       .then((res) => {
         const { status, data } = res
         if (status === 201) {

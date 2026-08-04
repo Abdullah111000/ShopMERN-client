@@ -31,7 +31,7 @@ const Login = () => {
     const userData = { email, password }
     setIsProcessing(true)
 
-    axios.post("http://localhost:8000/api/auth/login", userData)
+    axios.post("/api/auth/login", userData)
       .then((res) => {
         const { status, data } = res
         if (status === 200) {
